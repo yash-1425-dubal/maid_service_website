@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .col-lg-4, .col-md-4 {
+            width: 30%;
+            margin: 10px;
+        }
+
+        .single-price-table {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .single-price-table:hover {
+            transform: translateY(-10px);
+        }
+
+        .amount-text h2 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .amount-text p {
+            font-size: 14px;
+            color: #666;
+            margin-top: -10px;
+        }
+
+        .offer-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .offer-list li {
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        .select-plan {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .select-plan:hover {
+            background-color: #218838;
+        }
+
+        .payment-form {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 400px;
+            margin: 20px auto;
+            display: none;
+        }
+
+        .payment-form h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .payment-form input, .payment-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .payment-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .payment-form button:hover {
+            background-color: #218838;
+        }
+
+        .service-checkbox {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .payment-methods {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .payment-methods label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .payment-methods input {
+            margin-right: 10px;
+        }
+
+        #debit-card-info, #credit-card-info, #upiInfo, #qrInfo {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        h4 {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <!-- Basic Plan -->
+        <div class="col-lg-4 col-md-4 wow fadeInUp">
+            <div class="single-price-table">
+                <h3>Basic Plan</h3>
+                <div class="amount-text">
+                    <h2>Rs. 333</h2>
+                    <p>Per Day choose any one service</p>
+                </div>
+                <ul class="offer-list">
+                    <li>Apartment Cleaning</li>
+                    <li>Office Cleaning</li>
+                    <li>House Cleaning</li>
+                    <li>Car Washing</li>
+                    <li>Green Cleaning</li>
+                    <li>Maintenance Service</li>
+                </ul>
+                <a href="javascript:void(0)" class="select-plan" data-plan="Basic Plan" data-amount="333" data-limit="1">Select Plan</a>
+            </div>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="single-price-table">
+                <h3>Standard Plan</h3>
+                <div class="amount-text">
+                    <h2>Rs. 444</h2>
+                    <p>Per Day choose any two services</p>
+                </div>
+                <ul class="offer-list">
+                    <li>Apartment Cleaning</li>
+                    <li>Office Cleaning</li>
+                    <li>House Cleaning</li>
+                    <li>Car Washing</li>
+                    <li>Green Cleaning</li>
+                    <li>Maintenance Service</li>
+                </ul>
+                <a href="javascript:void(0)" class="select-plan" data-plan="Standard Plan" data-amount="444" data-limit="2">Select Plan</a>
+            </div>
+        </div>
+
+        <!-- Ultimate Plan -->
+        <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="single-price-table">
+                <h3>Ultimate Plan</h3>
+                <div class="amount-text">
+                    <h2>Rs. 555</h2>
+                    <p>Per Day choose any three services</p>
+                </div>
+                <ul class="offer-list">
+                    <li>Apartment Cleaning</li>
+                    <li>Office Cleaning</li>
+                    <li>House Cleaning</li>
+                    <li>Car Washing</li>
+                    <li>Green Cleaning</li>
+                    <li>Maintenance Service</li>
+                </ul>
+                <a href="javascript:void(0)" class="select-plan" data-plan="Ultimate Plan" data-amount="555" data-limit="3">Select Plan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HTML Form for Payment Details -->
+    <form action="payment.php" method="POST" class="payment-form" id="payment-form">
+        <input type="hidden" name="user_id" value="<?php echo isset($_GET['user_id']) ? htmlspecialchars($_GET['user_id']) : ''; ?>" />
+        
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Enter Address" required>
+        
+        <!-- Day and Date Selection -->
+        <label for="booking_day">Select Day</label>
+        <select id="booking_day" name="booking_day" required>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+
+        <label for="booking_date">Select Date</label>
+        <input type="date" id="booking_date" name="booking_date" required>
+
+        <!-- Time Selection -->
+        <label for="booking_time">Select Time</label>
+        <select id="booking_time" name="booking_time" required>
+            <option value="8:00 AM">8:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+        </select>
+
+        <!-- Services Selection -->
+        <label for="selected_plan">Selected Plan</label>
+        <input type="text" id="selected-plan" name="selected_plan" value="Basic Plan" readonly>
+
+        <div id="service-selection">
+            <input type="checkbox" name="services[]" class="service-checkbox" value="Apartment Cleaning"> Apartment Cleaning<br>
+            <input type="checkbox" name="services[]" class="service-checkbox" value="Office Cleaning"> Office Cleaning<br>
+            <input type="checkbox" name="services[]" class="service-checkbox" value="House Cleaning"> House Cleaning<br>
+            <input type="checkbox" name="services[]" class="service-checkbox" value="Car Washing"> Car Washing<br>
+            <input type="checkbox" name="services[]" class="service-checkbox" value="Green Cleaning"> Green Cleaning<br>
+            <input type="checkbox" name="services[]" class="service-checkbox" value="Maintenance Service"> Maintenance Service<br>
+        </div>
+
+        <!-- Payment Methods -->
+        <h3>Payment Method</h3>
+        <div class="payment-methods">
+            <label><input type="radio" name="payment_method" value="UPI" onclick="togglePaymentDetails(this)"> UPI</label>
+            <label><input type="radio" name="payment_method" value="QR Code" onclick="togglePaymentDetails(this)"> QR Code</label>
+            <label><input type="radio" name="payment_method" value="Debit Card" onclick="togglePaymentDetails(this)"> Debit Card</label>
+            <label><input type="radio" name="payment_method" value="Credit Card" onclick="togglePaymentDetails(this)"> Credit Card</label>
+        </div>
+
+        <div id="upiInfo">
+            <h4>UPI ID</h4>
+            <input type="text" name="upi_id" placeholder="Enter your UPI ID">
+        </div>
+
+        <div id="qrInfo">
+            <h4>QR Code</h4>
+            <img id="qr-code-display" src="qrcode.jpeg" alt="Your QR Code" style="display:none; margin-top: 10px; width: 200px; height: 200px;">
+        </div>
+
+        <div id="debit-card-info">
+            <h4>Debit Card Info</h4>
+            <input type="text" name="name_on_debit_card" placeholder="Name On Debit Card">
+            <input type="text" name="debit_card_number" placeholder="Enter Debit Card Number">
+            <input type="text" name="debit_card_cvv" placeholder="Enter CVV">
+            <input type="date" name="debit_card_expiry" placeholder="Expiry Date">
+        </div>
+
+        <div id="credit-card-info">
+            <h4>Credit Card Info</h4>
+            <input type="text" name="name_on_credit_card" placeholder="Name On Credit Card">
+            <input type="text" name="credit_card_number" placeholder="Enter Credit Card Number">
+            <input type="text" name="credit_card_cvv" placeholder="Enter CVV">
+            <input type="date" name="credit_card_expiry" placeholder="Expiry Date">
+        </div>
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+
+    <script>
+        const planButtons = document.querySelectorAll('.select-plan');
+        const serviceCheckboxes = document.querySelectorAll('.service-checkbox');
+        const paymentForm = document.getElementById('payment-form');
+        const selectedPlanInput = document.getElementById('selected-plan');
+
+        planButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedPlan = this.getAttribute('data-plan');
+                const amount = this.getAttribute('data-amount');
+                const limit = parseInt(this.getAttribute('data-limit'));
+
+                // Update the selected plan input
+                selectedPlanInput.value = selectedPlan;
+
+                // Show the payment form
+                paymentForm.style.display = 'block';
+
+                // Reset all service checkboxes and disable them
+                serviceCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    checkbox.disabled = false; // Enable all checkboxes for the new plan
+                });
+
+                // Enable only the allowed number of checkboxes
+                serviceCheckboxes.forEach((checkbox, index) => {
+                    checkbox.disabled = false; // Enable all checkboxes initially
+                });
+
+                // Update checkbox behavior based on the selected plan limit
+                serviceCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const checkedCount = Array.from(serviceCheckboxes).filter(cb => cb.checked).length;
+                        if (checkedCount >= limit) {
+                            serviceCheckboxes.forEach(cb => {
+                                if (!cb.checked) {
+                                    cb.disabled = true; // Disable unchecked checkboxes
+                                }
+                            });
+                        } else {
+                            serviceCheckboxes.forEach(cb => {
+                                cb.disabled = false; // Enable all checkboxes if below limit
+                            });
+                        }
+                    });
+                });
+            });
+        });
+
+        function togglePaymentDetails(radio) {
+            // Hide all payment details sections first
+            document.getElementById('upiInfo').style.display = 'none';
+            document.getElementById('qrInfo').style.display = 'none';
+            document.getElementById('debit-card-info').style.display = 'none';
+            document.getElementById('credit-card-info').style.display = 'none';
+
+            // Show the specific section based on the selected radio button
+            if (radio.value === 'UPI') {
+                document.getElementById('upiInfo').style.display = 'block';
+            } else if (radio.value === 'QR Code') {
+                document.getElementById('qrInfo').style.display = 'block';
+                document.getElementById('qr-code-display').style.display = 'block';
+            } else if (radio.value === 'Debit Card') {
+                document.getElementById('debit-card-info').style.display = 'block';
+            } else if (radio.value === 'Credit Card') {
+                document.getElementById('credit-card-info').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
